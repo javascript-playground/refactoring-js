@@ -22,11 +22,11 @@ Tabularize.prototype = {
   },
   transition: function(hash) {
     this._activateTab(hash);
-    var link = $(".tab-link").filter("[href='" + hash + "']").parent();
+    var link = tabLinks.filter("[href='" + hash + "']").closest("li");
     this._activateLink(link);
   },
   _activateLink: function(elem) {
-    $(".active").removeClass("active");
+    tabWrapper.find(".active").removeClass("active");
     elem.addClass("active");
   },
   _activateTab: function(hash) {
