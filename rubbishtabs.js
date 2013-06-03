@@ -1,5 +1,9 @@
 var tabularize = function() {
 
+  var tabsWrapper = $(".tabs");
+  var tabs = tabsWrapper.children("div");
+  var tabLinks = tabsWrapper.find(".tab-link");
+
   var activateLink = function(elem) {
     $(".active").removeClass("active");
     elem.addClass("active");
@@ -15,10 +19,6 @@ var tabularize = function() {
     var link = $(".tab-link").filter("[href='" + hash + "']").parent();
     activateLink(link);
   };
-
-  var tabsWrapper = $(".tabs");
-  var tabs = tabsWrapper.children("div");
-  var tabLinks = tabsWrapper.find(".tab-link");
 
   var active = location.hash;
   if(active) {
