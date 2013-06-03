@@ -1,16 +1,12 @@
-/*
- * general problems
- * 1. reusing selectors
- * 2. not very DRY
- * 3. click()
- * 4. return false
- * 5. tied to specific HTML
- */
 var tabularize = function() {
+  var tabsWrapper = $(".tabs");
+  var tabs = tabsWrapper.children("div");
+  var tabLinks = tabsWrapper.find(".tab-link");
+
   var active = location.hash;
   // need to be more careful with hash
   if(active) {
-    $(".tabs").children("div").hide();
+    tabs.hide();
     $(active).show();
     $(".active").removeClass("active");
     $(".tab-link").each(function() {
@@ -19,8 +15,8 @@ var tabularize = function() {
       }
     });
   }
-  $(".tabs").find(".tab-link").click(function() {
-    $(".tabs").children("div").hide();
+  tabLinks.click(function() {
+    tabs.hide();
     $($(this).attr("href")).show();
     $(".active").removeClass("active");
     $(this).parent().addClass("active");
