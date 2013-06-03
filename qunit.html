@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  <script src="rubbishtabs.js"></script>
+  <link rel="stylesheet" href="test/qunit.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    <div class="tabs">
+      <ul>
+        <li class="active"><a href="#tab1" class="tab-link">Tab 1</a></li>
+        <li><a href="#tab2" class="tab-link">Tab 2</a></li>
+        <li><a href="#tab3" class="tab-link">Tab 3</a></li>
+      </ul>
+      <div id="tab1">
+        <h3>Tab 1</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div id="tab2">
+        <h3>Tab 2</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div id="tab3">
+        <h3>Tab 3</h3>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+    </div>
+  </div>
+  <script src="test/qunit.js"></script>
+  <script src="test/tests.js"></script>
+</body>
+</html>

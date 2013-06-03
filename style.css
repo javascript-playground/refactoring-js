@@ -1,0 +1,28 @@
+.tabs {
+  width: 600px;
+  border: 1px solid #111;
+}
+
+.tabs ul {
+  margin-bottom: 1px solid #111;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs li {
+  display: inline-block;
+  width: 30%;
+  padding: 5px;
+  text-align: center;
+}
+
+.tabs li.active {
+  background: #ddd;
+}
+
+.tabs div {
+  padding: 5px;
+  background: #ddd;
+}
+
+#tab2, #tab3 { display: none; }
