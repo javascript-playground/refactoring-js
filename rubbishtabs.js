@@ -16,7 +16,9 @@ var tabularize = function() {
 
   var transition = function(hash) {
     activateTab(hash);
-    activateLink($(".tab-link[href='" + hash + "']").closest("li"));
+    activateLink(tabLinks.filter(function() {
+      return $(this).attr("href") === hash;
+    }).closest("li"));
   };
 
   var active = location.hash;
