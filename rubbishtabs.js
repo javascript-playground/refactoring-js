@@ -10,7 +10,6 @@ var tabularize = function() {
   var tabLinks = tabsWrapper.find(".tab-link");
 
   var active = location.hash;
-  // need to be more careful with hash
   if(active) {
     tabs.hide();
     $(active).show();
@@ -20,10 +19,10 @@ var tabularize = function() {
       }
     });
   }
-  tabLinks.click(function() {
+  tabLinks.on("click", function(e) {
+    e.preventDefault();
     tabs.hide();
     $($(this).attr("href")).show();
     activateLink($(this).parent());
-    return false;
   });
 };
