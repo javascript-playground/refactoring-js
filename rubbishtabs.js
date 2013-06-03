@@ -10,19 +10,22 @@ var tabularize = function() {
     $(tabHash).show();
   };
 
+  var transition = function(hash) {
+    activateTab(hash);
+    var link = $(".tab-link").filter("[href='" + hash + "']").parent();
+    activateLink(link);
+  };
+
   var tabsWrapper = $(".tabs");
   var tabs = tabsWrapper.children("div");
   var tabLinks = tabsWrapper.find(".tab-link");
 
   var active = location.hash;
   if(active) {
-    activateTab(active);
-    var link = $(".tab-link").filter("[href='" + active + "']").parent();
-    activateLink(link);
+    transition(active);
   }
   tabLinks.on("click", function(e) {
     e.preventDefault();
-    activateTab($(this).attr("href"));
-    activateLink($(this).parent());
+    transition($(this).attr("href"));
   });
 };
