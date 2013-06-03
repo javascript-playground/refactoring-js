@@ -1,31 +1,36 @@
-var tabularize = function() {
+var Tabularize = function(elem) {
+  this.tabsWrapper = $(elem);
+  this.tabs = this.tabsWrapper.children("div");
+  this.tabLinks = this.tabsWrapper.find(".tab-link");
+  this.checkHash();
+  this.bind();
+};
 
-  var tabsWrapper = $(".tabs");
-  var tabs = tabsWrapper.children("div");
-  var tabLinks = tabsWrapper.find(".tab-link");
-
-  var activateLink = function(elem) {
+Tabularize.prototype = {
+  bind: function() {
+    var self = this;
+    this.tabLinks.on("click", function(e) {
+      e.preventDefault();
+      self.transition($(this).attr("href"));
+    });
+  },
+  checkHash: function() {
+    var active = location.hash;
+    if(active) {
+      this.transition(active);
+    }
+  },
+  transition: function(hash) {
+    this._activateTab(hash);
+    var link = $(".tab-link").filter("[href='" + hash + "']").parent();
+    this._activateLink(link);
+  },
+  _activateLink: function(elem) {
     $(".active").removeClass("active");
     elem.addClass("active");
-  };
-
-  var activateTab = function(tabHash) {
-    tabs.hide();
-    $(tabHash).show();
-  };
-
-  var transition = function(hash) {
-    activateTab(hash);
-    var link = $(".tab-link").filter("[href='" + hash + "']").parent();
-    activateLink(link);
-  };
-
-  var active = location.hash;
-  if(active) {
-    transition(active);
+  },
+  _activateTab: function(hash) {
+    this.tabs.hide();
+    $(hash).show();
   }
-  tabLinks.on("click", function(e) {
-    e.preventDefault();
-    transition($(this).attr("href"));
-  });
-};
+}

@@ -1,7 +1,7 @@
 module("navigating tabs", {
   setup: function() {
     location.hash = "";
-    tabularize();
+    var tabs = new Tabularize(".tabs");
   }
 });
 
@@ -19,7 +19,7 @@ test("clicking the links", function() {
 module("hash detection", {
   setup: function() {
     location.hash = "#tab2"
-    tabularize();
+    var tabs = new Tabularize(".tabs");
   }
 });
 
