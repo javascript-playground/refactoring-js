@@ -5,7 +5,7 @@ var tabularize = function() {
   var tabLinks = tabsWrapper.find(".tab-link");
 
   var activateLink = function(elem) {
-    $(".active").removeClass("active");
+    tabsWrapper.find(".active").removeClass("active");
     elem.addClass("active");
   };
 
